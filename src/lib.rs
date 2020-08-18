@@ -1,6 +1,10 @@
+pub mod command;
+
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use uuid::Uuid;
+
+use command::{PlaceStructureCommand, UpdateEntityScriptCommand, UpdateScriptCommand};
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all(serialize = "camelCase", deserialize = "camelCase"))]
@@ -12,8 +16,9 @@ pub enum ClientMessage {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all(serialize = "camelCase", deserialize = "camelCase"))]
 pub enum InputPayload {
-    UpdateScript(UpdateScript),
-    UpdateEntityScript(UpdateEntityScript),
+    UpdateScript(UpdateScriptCommand),
+    UpdateEntityScript(UpdateEntityScriptCommand),
+    PlaceStructure(PlaceStructureCommand),
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -21,22 +26,6 @@ pub enum InputPayload {
 pub struct InputMsg {
     pub msg_id: Uuid,
     pub payload: InputPayload,
-}
-
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(rename_all(serialize = "camelCase", deserialize = "camelCase"))]
-pub struct UpdateEntityScript {
-    pub user_id: Uuid,
-    pub entity_id: u32,
-    pub script_id: Uuid,
-}
-
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(rename_all(serialize = "camelCase", deserialize = "camelCase"))]
-pub struct UpdateScript {
-    pub user_id: Uuid,
-    pub script_id: Uuid,
-    pub compiled_script: CompiledScript,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -124,6 +113,7 @@ pub struct Structure {
     pub owner: Option<Uuid>,
     pub payload: StructurePayload,
 }
+
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all(serialize = "camelCase", deserialize = "camelCase"))]
 pub enum StructurePayload {
