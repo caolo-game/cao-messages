@@ -6,7 +6,7 @@ use uuid::Uuid;
 #[serde(rename_all(serialize = "camelCase", deserialize = "camelCase"))]
 pub struct PlaceStructureCommand {
     pub position: WorldPosition,
-    pub owner: Option<Uuid>,
+    pub owner: Uuid,
     pub ty: StructureType,
 }
 
