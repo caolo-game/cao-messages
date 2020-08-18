@@ -129,6 +129,12 @@ pub struct StructureSpawn {
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all(serialize = "camelCase", deserialize = "camelCase"))]
+pub enum StructureType {
+    Spawn,
+} 
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all(serialize = "camelCase", deserialize = "camelCase"))]
 pub struct Resource {
     pub id: u32,
     pub ty: ResourceType,

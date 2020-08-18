@@ -1,4 +1,4 @@
-use super::{CompiledScript, StructurePayload, WorldPosition};
+use super::{CompiledScript, StructureType, WorldPosition};
 use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 
@@ -7,7 +7,7 @@ use uuid::Uuid;
 pub struct PlaceStructureCommand {
     pub position: WorldPosition,
     pub owner: Option<Uuid>,
-    pub payload: StructurePayload,
+    pub ty: StructureType,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
