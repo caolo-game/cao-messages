@@ -75,7 +75,7 @@ pub struct Schema {
     pub functions: Vec<Function>,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, Eq, PartialEq)]
 #[serde(rename_all(serialize = "camelCase", deserialize = "camelCase"))]
 pub struct AxialPoint {
     pub q: i32,
