@@ -94,7 +94,6 @@ pub struct Point {
 pub struct WorldPosition {
     pub room: AxialPoint,
     pub room_pos: AxialPoint,
-    pub absolute_pos: Point,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
