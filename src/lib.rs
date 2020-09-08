@@ -75,7 +75,7 @@ pub struct Schema {
     pub functions: Vec<Function>,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, Eq, PartialEq)]
+#[derive(Debug, Clone, Serialize, Deserialize, Eq, PartialEq, Hash)]
 #[serde(rename_all(serialize = "camelCase", deserialize = "camelCase"))]
 pub struct AxialPoint {
     pub q: i32,
@@ -130,7 +130,7 @@ pub struct StructureSpawn {
 #[serde(rename_all(serialize = "camelCase", deserialize = "camelCase"))]
 pub enum StructureType {
     Spawn,
-} 
+}
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all(serialize = "camelCase", deserialize = "camelCase"))]
@@ -149,8 +149,14 @@ pub enum ResourceType {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all(serialize = "camelCase", deserialize = "camelCase"))]
 pub struct WorldState {
-    pub bots: Vec<Bot>,
+    pub rooms: HashMap<AxialPoint, RoomState>,
     pub logs: Vec<LogEntry>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all(serialize = "camelCase", deserialize = "camelCase"))]
+pub struct RoomState {
+    pub bots: Vec<Bot>,
     pub resources: Vec<Resource>,
     pub structures: Vec<Structure>,
 }
