@@ -2,6 +2,14 @@ use super::{CompiledScript, StructureType, WorldPosition};
 use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 
+/// Returning message after a command executed
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all(serialize = "camelCase", deserialize = "camelCase"))]
+pub enum CommandResult {
+    Ok,
+    Error(String),
+}
+
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all(serialize = "camelCase", deserialize = "camelCase"))]
 pub struct PlaceStructureCommand {
