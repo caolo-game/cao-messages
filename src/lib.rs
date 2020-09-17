@@ -126,6 +126,9 @@ pub enum StructurePayload {
 pub struct StructureSpawn {
     pub time_to_spawn: i32,
     pub spawning: Option<u32>,
+    pub energy: u32,
+    pub energy_max: u32,
+    pub energy_regen: Option<u32>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
