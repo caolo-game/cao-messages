@@ -102,6 +102,8 @@ pub struct Bot {
     pub id: u32,
     pub position: WorldPosition,
     pub owner: Option<Uuid>,
+
+    pub body: serde_json::Value,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
