@@ -4,7 +4,9 @@ use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use uuid::Uuid;
 
-use command::{PlaceStructureCommand, UpdateEntityScriptCommand, UpdateScriptCommand};
+use command::{
+    PlaceStructureCommand, SetDefaultScriptCommand, UpdateEntityScriptCommand, UpdateScriptCommand,
+};
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all(serialize = "camelCase", deserialize = "camelCase"))]
@@ -16,6 +18,7 @@ pub enum ClientMessage {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all(serialize = "camelCase", deserialize = "camelCase"))]
 pub enum InputPayload {
+    SetDefaultScript(SetDefaultScriptCommand),
     UpdateScript(UpdateScriptCommand),
     UpdateEntityScript(UpdateEntityScriptCommand),
     PlaceStructure(PlaceStructureCommand),
