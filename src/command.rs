@@ -33,3 +33,10 @@ pub struct UpdateScriptCommand {
     pub script_id: Uuid,
     pub compiled_script: CompiledScript,
 }
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all(serialize = "camelCase", deserialize = "camelCase"))]
+pub struct SetDefaultScriptCommand {
+    pub user_id: Uuid,
+    pub script_id: Uuid,
+}
