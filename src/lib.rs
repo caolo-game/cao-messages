@@ -159,6 +159,7 @@ pub enum ResourceType {
 pub struct WorldState {
     pub rooms: HashMap<AxialPoint, RoomState>,
     pub logs: Vec<LogEntry>,
+    pub script_history: Vec<ScriptHistoryEntry>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -175,6 +176,19 @@ pub struct LogEntry {
     pub entity_id: u32,
     pub time: u64,
     pub payload: Vec<String>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all(serialize = "camelCase", deserialize = "camelCase"))]
+pub struct ScriptHistoryEntry {
+    pub entity_id: u32,
+    pub payload: Vec<ScriptHistoryEntryPayload>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct ScriptHistoryEntryPayload {
+    pub id: i64,
+    pub instruction: String,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
