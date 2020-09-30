@@ -188,7 +188,7 @@ pub struct ScriptHistoryEntry {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ScriptHistoryEntryPayload {
     pub id: i64,
-    pub instruction: String,
+    pub instruction: serde_json::Value,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
