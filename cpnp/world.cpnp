@@ -47,21 +47,12 @@ struct Energy {
     energyMax @1: UInt32;
 }
 
-struct RoomStateKV {
-    key @0: Point.AxialPoint;
-    val @1: Point.AxialPoint;
-}
-
 struct WorldState {
-    rooms @0: List(RoomStateKV);
-    logs @1: List(LogEntry);
-    scriptHistory @2: List(ScriptHistoryEntry);
-}
-
-struct RoomState {
     bots @0: List(Bot);
     resources @1: List(Resource);
     structures @2: List(Structure);
+    logs @3: List(LogEntry);
+    scriptHistory @4: List(ScriptHistoryEntry);
 }
 
 struct LogEntry {
