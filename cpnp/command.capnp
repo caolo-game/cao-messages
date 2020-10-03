@@ -1,7 +1,7 @@
 @0xcf70785d993fa691;
 
-using Point = import "point.cpnp";
-using Script = import "script.cpnp";
+using Point = import "point.capnp";
+using Script = import "script.capnp";
 
 struct Uuid {
     data @0: Data;

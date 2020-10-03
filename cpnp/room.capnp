@@ -1,6 +1,6 @@
 @0x8fa8617ce0060b4d;
 
-using Point = import "point.cpnp";
+using Point = import "point.capnp";
 
 struct RoomTerrainMessage {
     tiles @0: List(Tile);

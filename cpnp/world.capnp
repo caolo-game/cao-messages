@@ -1,6 +1,6 @@
 @0x8bd03b1f356ac9da;
 
-using Point = import "point.cpnp";
+using Point = import "point.capnp";
 
 struct Json {
     value @0: Text;
