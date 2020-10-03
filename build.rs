@@ -26,6 +26,7 @@ fn main() {
             }
         };
         let mut cpnp = File::open(&file).expect("failed to open schema file");
+        schema_buf.clear();
         cpnp.read_to_string(&mut schema_buf).unwrap();
 
         let fname = fname.to_str().expect("expected utf8 filename");
