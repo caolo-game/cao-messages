@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["command_capnp",""],["point_capnp",""],["room_capnp",""],["script_capnp",""],["world_capnp",""]]});

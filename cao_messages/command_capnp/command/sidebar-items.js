@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["_private",""],["handle_params",""],["handle_results",""],["input_message",""]],"struct":[["Client",""],["Owned",""],["ServerDispatch",""]],"trait":[["Server",""]],"type":[["HandleParams",""],["HandleResults",""]]});

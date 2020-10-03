@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["cao_messages"] = [{"text":"impl&lt;_S:&nbsp;<a class=\"trait\" href=\"cao_messages/command_capnp/command/trait.Server.html\" title=\"trait cao_messages::command_capnp::command::Server\">Server</a> + 'static&gt; <a class=\"trait\" href=\"capnp/capability/trait.FromServer.html\" title=\"trait capnp::capability::FromServer\">FromServer</a>&lt;_S&gt; for <a class=\"struct\" href=\"cao_messages/command_capnp/command/struct.Client.html\" title=\"struct cao_messages::command_capnp::command::Client\">Client</a>","synthetic":false,"types":["cao_messages::command_capnp::command::Client"]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()
