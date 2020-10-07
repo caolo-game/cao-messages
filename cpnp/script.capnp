@@ -19,7 +19,7 @@ struct Function {
     description @1: Text;
     input @2: List(Text);
     output @3: List(Text);
-    params @4: List(Text);
+    constants @4: List(Text);
 }
 
 struct Schema {
