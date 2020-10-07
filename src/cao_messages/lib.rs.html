@@ -229,6 +229,131 @@
      <span class="macro">include</span><span class="macro">!</span>(<span class="macro">concat</span><span class="macro">!</span>(<span class="macro">env</span><span class="macro">!</span>(<span class="string">&quot;OUT_DIR&quot;</span>), <span class="string">&quot;/cpnp/point_capnp.rs&quot;</span>));
 }
 <span class="doccomment">/// ```capnp</span>
+<span class="doccomment">/// @0xb47934fcdf48c012;</span>
+<span class="doccomment">/// </span>
+<span class="doccomment">/// struct Label {</span>
+<span class="doccomment">///     block @0: Int32;</span>
+<span class="doccomment">/// }</span>
+<span class="doccomment">/// </span>
+<span class="doccomment">/// struct LabelKV {</span>
+<span class="doccomment">///     key @0: Int32;</span>
+<span class="doccomment">///     val @1: Label;</span>
+<span class="doccomment">/// }</span>
+<span class="doccomment">/// </span>
+<span class="doccomment">/// struct CompiledScript {</span>
+<span class="doccomment">///     bytecode @0: Data;</span>
+<span class="doccomment">///     labels @1: List(LabelKV);</span>
+<span class="doccomment">/// }</span>
+<span class="doccomment">/// </span>
+<span class="doccomment">/// struct Function {</span>
+<span class="doccomment">///     name @0: Text;</span>
+<span class="doccomment">///     description @1: Text;</span>
+<span class="doccomment">///     input @2: List(Text);</span>
+<span class="doccomment">///     output @3: List(Text);</span>
+<span class="doccomment">///     constants @4: List(Text);</span>
+<span class="doccomment">/// }</span>
+<span class="doccomment">/// </span>
+<span class="doccomment">/// struct Schema {</span>
+<span class="doccomment">///     functions @0: List(Function);</span>
+<span class="doccomment">/// }</span>
+<span class="doccomment">/// </span>
+<span class="doccomment">/// ```</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">script_capnp</span> {
+     <span class="macro">include</span><span class="macro">!</span>(<span class="macro">concat</span><span class="macro">!</span>(<span class="macro">env</span><span class="macro">!</span>(<span class="string">&quot;OUT_DIR&quot;</span>), <span class="string">&quot;/cpnp/script_capnp.rs&quot;</span>));
+}
+<span class="doccomment">/// ```capnp</span>
+<span class="doccomment">/// @0x8fa8617ce0060b4d;</span>
+<span class="doccomment">/// </span>
+<span class="doccomment">/// using Point = import &quot;point.capnp&quot;;</span>
+<span class="doccomment">/// </span>
+<span class="doccomment">/// struct RoomTerrainMessage {</span>
+<span class="doccomment">///     tiles @0: List(Tile);</span>
+<span class="doccomment">///     roomProperties @1: RoomProperties;</span>
+<span class="doccomment">/// }</span>
+<span class="doccomment">/// </span>
+<span class="doccomment">/// struct RoomProperties {</span>
+<span class="doccomment">///     roomRadius @0: UInt32;</span>
+<span class="doccomment">///     roomId @1: Point.AxialPoint;</span>
+<span class="doccomment">/// }</span>
+<span class="doccomment">/// </span>
+<span class="doccomment">/// struct Tile {</span>
+<span class="doccomment">///     position @0: Point.WorldPosition;</span>
+<span class="doccomment">///     ty @1: TerrainType;</span>
+<span class="doccomment">/// }</span>
+<span class="doccomment">/// </span>
+<span class="doccomment">/// enum TerrainType {</span>
+<span class="doccomment">///     empty @0;</span>
+<span class="doccomment">///     wall @1;</span>
+<span class="doccomment">///     plain @2;</span>
+<span class="doccomment">///     bridge @3;</span>
+<span class="doccomment">/// }</span>
+<span class="doccomment">/// ```</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">room_capnp</span> {
+     <span class="macro">include</span><span class="macro">!</span>(<span class="macro">concat</span><span class="macro">!</span>(<span class="macro">env</span><span class="macro">!</span>(<span class="string">&quot;OUT_DIR&quot;</span>), <span class="string">&quot;/cpnp/room_capnp.rs&quot;</span>));
+}
+<span class="doccomment">/// ```capnp</span>
+<span class="doccomment">/// @0xcf70785d993fa691;</span>
+<span class="doccomment">/// </span>
+<span class="doccomment">/// using Point = import &quot;point.capnp&quot;;</span>
+<span class="doccomment">/// using Script = import &quot;script.capnp&quot;;</span>
+<span class="doccomment">/// </span>
+<span class="doccomment">/// struct Uuid {</span>
+<span class="doccomment">///     data @0: Data;</span>
+<span class="doccomment">/// }</span>
+<span class="doccomment">/// </span>
+<span class="doccomment">/// enum StructureType {</span>
+<span class="doccomment">///     spawn @0;</span>
+<span class="doccomment">/// }</span>
+<span class="doccomment">/// </span>
+<span class="doccomment">/// struct PlaceStructureCommand {</span>
+<span class="doccomment">///     position @0: Point.WorldPosition;</span>
+<span class="doccomment">///     owner @1: Uuid;</span>
+<span class="doccomment">///     ty @2: StructureType;</span>
+<span class="doccomment">/// }</span>
+<span class="doccomment">/// </span>
+<span class="doccomment">/// struct UpdateEntityScriptCommand {</span>
+<span class="doccomment">///     userId @0: Uuid;</span>
+<span class="doccomment">///     entityId @1: UInt32;</span>
+<span class="doccomment">///     scriptId @2: Uuid;</span>
+<span class="doccomment">/// }</span>
+<span class="doccomment">/// </span>
+<span class="doccomment">/// struct UpdateScriptCommand {</span>
+<span class="doccomment">///     userId @0: Uuid;</span>
+<span class="doccomment">///     scriptId @1: Uuid;</span>
+<span class="doccomment">///     compiledScript @2: Script.CompiledScript;</span>
+<span class="doccomment">/// }</span>
+<span class="doccomment">/// </span>
+<span class="doccomment">/// struct SetDefaultScriptCommand {</span>
+<span class="doccomment">///     userId @0: Uuid;</span>
+<span class="doccomment">///     scriptId @1: Uuid;</span>
+<span class="doccomment">/// }</span>
+<span class="doccomment">/// </span>
+<span class="doccomment">/// </span>
+<span class="doccomment">/// struct CommandResult {</span>
+<span class="doccomment">///     union {</span>
+<span class="doccomment">///         ok @0 : Void;</span>
+<span class="doccomment">///         error @1: Text;</span>
+<span class="doccomment">///     }</span>
+<span class="doccomment">/// }</span>
+<span class="doccomment">/// </span>
+<span class="doccomment">/// interface Command {</span>
+<span class="doccomment">///     struct InputMessage {</span>
+<span class="doccomment">///         messageId @0: Uuid;</span>
+<span class="doccomment">///         union {</span>
+<span class="doccomment">///             placeStructure @1: PlaceStructureCommand;</span>
+<span class="doccomment">///             updateEntityScript @2: UpdateEntityScriptCommand;</span>
+<span class="doccomment">///             updateScript @3: UpdateScriptCommand;</span>
+<span class="doccomment">///             setDefaultScript @4: SetDefaultScriptCommand;</span>
+<span class="doccomment">///         }</span>
+<span class="doccomment">///     }</span>
+<span class="doccomment">/// </span>
+<span class="doccomment">///     handle @0 (input: InputMessage) -&gt; (result: CommandResult);</span>
+<span class="doccomment">/// }</span>
+<span class="doccomment">/// ```</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">command_capnp</span> {
+     <span class="macro">include</span><span class="macro">!</span>(<span class="macro">concat</span><span class="macro">!</span>(<span class="macro">env</span><span class="macro">!</span>(<span class="string">&quot;OUT_DIR&quot;</span>), <span class="string">&quot;/cpnp/command_capnp.rs&quot;</span>));
+}
+<span class="doccomment">/// ```capnp</span>
 <span class="doccomment">/// @0x8bd03b1f356ac9da;</span>
 <span class="doccomment">/// </span>
 <span class="doccomment">/// using Point = import &quot;point.capnp&quot;;</span>
@@ -299,131 +424,6 @@
 <span class="doccomment">/// ```</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">world_capnp</span> {
      <span class="macro">include</span><span class="macro">!</span>(<span class="macro">concat</span><span class="macro">!</span>(<span class="macro">env</span><span class="macro">!</span>(<span class="string">&quot;OUT_DIR&quot;</span>), <span class="string">&quot;/cpnp/world_capnp.rs&quot;</span>));
-}
-<span class="doccomment">/// ```capnp</span>
-<span class="doccomment">/// @0xcf70785d993fa691;</span>
-<span class="doccomment">/// </span>
-<span class="doccomment">/// using Point = import &quot;point.capnp&quot;;</span>
-<span class="doccomment">/// using Script = import &quot;script.capnp&quot;;</span>
-<span class="doccomment">/// </span>
-<span class="doccomment">/// struct Uuid {</span>
-<span class="doccomment">///     data @0: Data;</span>
-<span class="doccomment">/// }</span>
-<span class="doccomment">/// </span>
-<span class="doccomment">/// enum StructureType {</span>
-<span class="doccomment">///     spawn @0;</span>
-<span class="doccomment">/// }</span>
-<span class="doccomment">/// </span>
-<span class="doccomment">/// struct PlaceStructureCommand {</span>
-<span class="doccomment">///     position @0: Point.WorldPosition;</span>
-<span class="doccomment">///     owner @1: Uuid;</span>
-<span class="doccomment">///     ty @2: StructureType;</span>
-<span class="doccomment">/// }</span>
-<span class="doccomment">/// </span>
-<span class="doccomment">/// struct UpdateEntityScriptCommand {</span>
-<span class="doccomment">///     userId @0: Uuid;</span>
-<span class="doccomment">///     entityId @1: UInt32;</span>
-<span class="doccomment">///     scriptId @2: Uuid;</span>
-<span class="doccomment">/// }</span>
-<span class="doccomment">/// </span>
-<span class="doccomment">/// struct UpdateScriptCommand {</span>
-<span class="doccomment">///     userId @0: Uuid;</span>
-<span class="doccomment">///     scriptId @1: Uuid;</span>
-<span class="doccomment">///     compiledScript @2: Script.CompiledScript;</span>
-<span class="doccomment">/// }</span>
-<span class="doccomment">/// </span>
-<span class="doccomment">/// struct SetDefaultScriptCommand {</span>
-<span class="doccomment">///     userId @0: Uuid;</span>
-<span class="doccomment">///     scriptId @1: Uuid;</span>
-<span class="doccomment">/// }</span>
-<span class="doccomment">/// </span>
-<span class="doccomment">/// </span>
-<span class="doccomment">/// struct CommandResult {</span>
-<span class="doccomment">///     union {</span>
-<span class="doccomment">///         ok @0 : Void;</span>
-<span class="doccomment">///         error @1: Text;</span>
-<span class="doccomment">///     }</span>
-<span class="doccomment">/// }</span>
-<span class="doccomment">/// </span>
-<span class="doccomment">/// interface Command {</span>
-<span class="doccomment">///     struct InputMessage {</span>
-<span class="doccomment">///         messageId @0: Uuid;</span>
-<span class="doccomment">///         union {</span>
-<span class="doccomment">///             placeStructure @1: PlaceStructureCommand;</span>
-<span class="doccomment">///             updateEntityScript @2: UpdateEntityScriptCommand;</span>
-<span class="doccomment">///             updateScript @3: UpdateScriptCommand;</span>
-<span class="doccomment">///             setDefaultScript @4: SetDefaultScriptCommand;</span>
-<span class="doccomment">///         }</span>
-<span class="doccomment">///     }</span>
-<span class="doccomment">/// </span>
-<span class="doccomment">///     handle @0 (input: InputMessage) -&gt; (result: CommandResult);</span>
-<span class="doccomment">/// }</span>
-<span class="doccomment">/// ```</span>
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">command_capnp</span> {
-     <span class="macro">include</span><span class="macro">!</span>(<span class="macro">concat</span><span class="macro">!</span>(<span class="macro">env</span><span class="macro">!</span>(<span class="string">&quot;OUT_DIR&quot;</span>), <span class="string">&quot;/cpnp/command_capnp.rs&quot;</span>));
-}
-<span class="doccomment">/// ```capnp</span>
-<span class="doccomment">/// @0x8fa8617ce0060b4d;</span>
-<span class="doccomment">/// </span>
-<span class="doccomment">/// using Point = import &quot;point.capnp&quot;;</span>
-<span class="doccomment">/// </span>
-<span class="doccomment">/// struct RoomTerrainMessage {</span>
-<span class="doccomment">///     tiles @0: List(Tile);</span>
-<span class="doccomment">///     roomProperties @1: RoomProperties;</span>
-<span class="doccomment">/// }</span>
-<span class="doccomment">/// </span>
-<span class="doccomment">/// struct RoomProperties {</span>
-<span class="doccomment">///     roomRadius @0: UInt32;</span>
-<span class="doccomment">///     roomId @1: Point.AxialPoint;</span>
-<span class="doccomment">/// }</span>
-<span class="doccomment">/// </span>
-<span class="doccomment">/// struct Tile {</span>
-<span class="doccomment">///     position @0: Point.WorldPosition;</span>
-<span class="doccomment">///     ty @1: TerrainType;</span>
-<span class="doccomment">/// }</span>
-<span class="doccomment">/// </span>
-<span class="doccomment">/// enum TerrainType {</span>
-<span class="doccomment">///     empty @0;</span>
-<span class="doccomment">///     wall @1;</span>
-<span class="doccomment">///     plain @2;</span>
-<span class="doccomment">///     bridge @3;</span>
-<span class="doccomment">/// }</span>
-<span class="doccomment">/// ```</span>
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">room_capnp</span> {
-     <span class="macro">include</span><span class="macro">!</span>(<span class="macro">concat</span><span class="macro">!</span>(<span class="macro">env</span><span class="macro">!</span>(<span class="string">&quot;OUT_DIR&quot;</span>), <span class="string">&quot;/cpnp/room_capnp.rs&quot;</span>));
-}
-<span class="doccomment">/// ```capnp</span>
-<span class="doccomment">/// @0xb47934fcdf48c012;</span>
-<span class="doccomment">/// </span>
-<span class="doccomment">/// struct Label {</span>
-<span class="doccomment">///     block @0: Int32;</span>
-<span class="doccomment">/// }</span>
-<span class="doccomment">/// </span>
-<span class="doccomment">/// struct LabelKV {</span>
-<span class="doccomment">///     key @0: Int32;</span>
-<span class="doccomment">///     val @1: Label;</span>
-<span class="doccomment">/// }</span>
-<span class="doccomment">/// </span>
-<span class="doccomment">/// struct CompiledScript {</span>
-<span class="doccomment">///     bytecode @0: Data;</span>
-<span class="doccomment">///     labels @1: List(LabelKV);</span>
-<span class="doccomment">/// }</span>
-<span class="doccomment">/// </span>
-<span class="doccomment">/// struct Function {</span>
-<span class="doccomment">///     name @0: Text;</span>
-<span class="doccomment">///     description @1: Text;</span>
-<span class="doccomment">///     input @2: List(Text);</span>
-<span class="doccomment">///     output @3: List(Text);</span>
-<span class="doccomment">///     params @4: List(Text);</span>
-<span class="doccomment">/// }</span>
-<span class="doccomment">/// </span>
-<span class="doccomment">/// struct Schema {</span>
-<span class="doccomment">///     functions @0: List(Function);</span>
-<span class="doccomment">/// }</span>
-<span class="doccomment">/// </span>
-<span class="doccomment">/// ```</span>
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">script_capnp</span> {
-     <span class="macro">include</span><span class="macro">!</span>(<span class="macro">concat</span><span class="macro">!</span>(<span class="macro">env</span><span class="macro">!</span>(<span class="string">&quot;OUT_DIR&quot;</span>), <span class="string">&quot;/cpnp/script_capnp.rs&quot;</span>));
 }
 </pre></div>
 </section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../";window.currentCrate = "cao_messages";</script><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script><script defer src="../../search-index.js"></script></body></html>
