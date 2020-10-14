@@ -1,3 +1,3 @@
 (function() {var implementors = {};
-implementors["cao_messages"] = [{"text":"impl <a class=\"trait\" href=\"capnp/capability/trait.FromClientHook.html\" title=\"trait capnp::capability::FromClientHook\">FromClientHook</a> for <a class=\"struct\" href=\"cao_messages/command_capnp/command/struct.Client.html\" title=\"struct cao_messages::command_capnp::command::Client\">Client</a>","synthetic":false,"types":["cao_messages::command_capnp::command::Client"]}];
+implementors["cao_messages"] = [{"text":"impl FromClientHook for Client","synthetic":false,"types":[]}];
 if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()
