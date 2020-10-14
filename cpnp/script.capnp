@@ -20,6 +20,7 @@ struct Function {
     input @2: List(Text);
     output @3: List(Text);
     constants @4: List(Text);
+    ty @5: Text;
 }
 
 struct Schema {
