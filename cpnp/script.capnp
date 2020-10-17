@@ -14,7 +14,7 @@ struct CompiledScript {
     labels @1: List(LabelKV);
 }
 
-struct Function {
+struct Card {
     name @0: Text;
     description @1: Text;
     input @2: List(Text);
@@ -24,6 +24,6 @@ struct Function {
 }
 
 struct Schema {
-    functions @0: List(Function);
+    cards @0: List(Card);
 }
 
