@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["card",""],["compiled_script",""],["label",""],["label_k_v",""],["schema",""]]});
+initSidebarItems({"mod":[["card",""],["compilation_unit",""],["compiler_version",""],["json",""],["schema",""]]});

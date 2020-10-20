@@ -213,57 +213,10 @@
 <span id="212">212</span>
 <span id="213">213</span>
 <span id="214">214</span>
+<span id="215">215</span>
+<span id="216">216</span>
+<span id="217">217</span>
 </pre><div class="example-wrap"><pre class="rust ">
-<span class="doccomment">/// ```capnp</span>
-<span class="doccomment">/// @0xec51f8bd9898388b;</span>
-<span class="doccomment">/// </span>
-<span class="doccomment">/// struct AxialPoint {</span>
-<span class="doccomment">///     q @0 : Int32;</span>
-<span class="doccomment">///     r @1 : Int32;</span>
-<span class="doccomment">/// }</span>
-<span class="doccomment">/// </span>
-<span class="doccomment">/// struct WorldPosition {</span>
-<span class="doccomment">///     room @0: AxialPoint;</span>
-<span class="doccomment">///     roomPos @1: AxialPoint;</span>
-<span class="doccomment">/// }</span>
-<span class="doccomment">/// ```</span>
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">point_capnp</span> {
-     <span class="macro">include</span><span class="macro">!</span>(<span class="macro">concat</span><span class="macro">!</span>(<span class="macro">env</span><span class="macro">!</span>(<span class="string">&quot;OUT_DIR&quot;</span>), <span class="string">&quot;/cpnp/point_capnp.rs&quot;</span>));
-}
-<span class="doccomment">/// ```capnp</span>
-<span class="doccomment">/// @0xb47934fcdf48c012;</span>
-<span class="doccomment">/// </span>
-<span class="doccomment">/// struct Label {</span>
-<span class="doccomment">///     block @0: Int32;</span>
-<span class="doccomment">/// }</span>
-<span class="doccomment">/// </span>
-<span class="doccomment">/// struct LabelKV {</span>
-<span class="doccomment">///     key @0: Int32;</span>
-<span class="doccomment">///     val @1: Label;</span>
-<span class="doccomment">/// }</span>
-<span class="doccomment">/// </span>
-<span class="doccomment">/// struct CompiledScript {</span>
-<span class="doccomment">///     bytecode @0: Data;</span>
-<span class="doccomment">///     labels @1: List(LabelKV);</span>
-<span class="doccomment">/// }</span>
-<span class="doccomment">/// </span>
-<span class="doccomment">/// struct Card {</span>
-<span class="doccomment">///     name @0: Text;</span>
-<span class="doccomment">///     description @1: Text;</span>
-<span class="doccomment">///     input @2: List(Text);</span>
-<span class="doccomment">///     output @3: List(Text);</span>
-<span class="doccomment">///     constants @4: List(Text);</span>
-<span class="doccomment">///     ty @5: Text;</span>
-<span class="doccomment">/// }</span>
-<span class="doccomment">/// </span>
-<span class="doccomment">/// struct Schema {</span>
-<span class="doccomment">///     cards @0: List(Card);</span>
-<span class="doccomment">/// }</span>
-<span class="doccomment">/// </span>
-<span class="doccomment">/// ```</span>
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">script_capnp</span> {
-     <span class="macro">include</span><span class="macro">!</span>(<span class="macro">concat</span><span class="macro">!</span>(<span class="macro">env</span><span class="macro">!</span>(<span class="string">&quot;OUT_DIR&quot;</span>), <span class="string">&quot;/cpnp/script_capnp.rs&quot;</span>));
-}
 <span class="doccomment">/// ```capnp</span>
 <span class="doccomment">/// @0x8fa8617ce0060b4d;</span>
 <span class="doccomment">/// </span>
@@ -295,6 +248,59 @@
      <span class="macro">include</span><span class="macro">!</span>(<span class="macro">concat</span><span class="macro">!</span>(<span class="macro">env</span><span class="macro">!</span>(<span class="string">&quot;OUT_DIR&quot;</span>), <span class="string">&quot;/cpnp/room_capnp.rs&quot;</span>));
 }
 <span class="doccomment">/// ```capnp</span>
+<span class="doccomment">/// @0xec51f8bd9898388b;</span>
+<span class="doccomment">/// </span>
+<span class="doccomment">/// struct AxialPoint {</span>
+<span class="doccomment">///     q @0 : Int32;</span>
+<span class="doccomment">///     r @1 : Int32;</span>
+<span class="doccomment">/// }</span>
+<span class="doccomment">/// </span>
+<span class="doccomment">/// struct WorldPosition {</span>
+<span class="doccomment">///     room @0: AxialPoint;</span>
+<span class="doccomment">///     roomPos @1: AxialPoint;</span>
+<span class="doccomment">/// }</span>
+<span class="doccomment">/// ```</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">point_capnp</span> {
+     <span class="macro">include</span><span class="macro">!</span>(<span class="macro">concat</span><span class="macro">!</span>(<span class="macro">env</span><span class="macro">!</span>(<span class="string">&quot;OUT_DIR&quot;</span>), <span class="string">&quot;/cpnp/point_capnp.rs&quot;</span>));
+}
+<span class="doccomment">/// ```capnp</span>
+<span class="doccomment">/// @0xb47934fcdf48c012;</span>
+<span class="doccomment">/// </span>
+<span class="doccomment">/// struct Card {</span>
+<span class="doccomment">///     name @0: Text;</span>
+<span class="doccomment">///     description @1: Text;</span>
+<span class="doccomment">///     input @2: List(Text);</span>
+<span class="doccomment">///     output @3: List(Text);</span>
+<span class="doccomment">///     constants @4: List(Text);</span>
+<span class="doccomment">///     ty @5: Text;</span>
+<span class="doccomment">/// }</span>
+<span class="doccomment">/// </span>
+<span class="doccomment">/// struct Schema {</span>
+<span class="doccomment">///     cards @0: List(Card);</span>
+<span class="doccomment">/// }</span>
+<span class="doccomment">/// </span>
+<span class="doccomment">/// struct Json {</span>
+<span class="doccomment">///     value @0: Data;</span>
+<span class="doccomment">/// }</span>
+<span class="doccomment">/// </span>
+<span class="doccomment">/// struct CompilerVersion {</span>
+<span class="doccomment">///     major @0: UInt8;</span>
+<span class="doccomment">///     minor @1: UInt8;</span>
+<span class="doccomment">///     patch @2: UInt16;</span>
+<span class="doccomment">/// }</span>
+<span class="doccomment">/// </span>
+<span class="doccomment">/// struct CompilationUnit {</span>
+<span class="doccomment">///     compilationUnit @0: Json;</span>
+<span class="doccomment">/// </span>
+<span class="doccomment">///     # Compiler version used to verify this compilation unit</span>
+<span class="doccomment">///     # null if it&#39;s unverified</span>
+<span class="doccomment">///     verfiedBy @1: CompilerVersion;</span>
+<span class="doccomment">/// }</span>
+<span class="doccomment">/// ```</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">script_capnp</span> {
+     <span class="macro">include</span><span class="macro">!</span>(<span class="macro">concat</span><span class="macro">!</span>(<span class="macro">env</span><span class="macro">!</span>(<span class="string">&quot;OUT_DIR&quot;</span>), <span class="string">&quot;/cpnp/script_capnp.rs&quot;</span>));
+}
+<span class="doccomment">/// ```capnp</span>
 <span class="doccomment">/// @0xcf70785d993fa691;</span>
 <span class="doccomment">/// </span>
 <span class="doccomment">/// using Point = import &quot;point.capnp&quot;;</span>
@@ -323,7 +329,7 @@
 <span class="doccomment">/// struct UpdateScriptCommand {</span>
 <span class="doccomment">///     userId @0: Uuid;</span>
 <span class="doccomment">///     scriptId @1: Uuid;</span>
-<span class="doccomment">///     compiledScript @2: Script.CompiledScript;</span>
+<span class="doccomment">///     compilationUnit @2: Script.CompilationUnit;</span>
 <span class="doccomment">/// }</span>
 <span class="doccomment">/// </span>
 <span class="doccomment">/// struct SetDefaultScriptCommand {</span>
