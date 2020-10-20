@@ -26,7 +26,7 @@ struct UpdateEntityScriptCommand {
 struct UpdateScriptCommand {
     userId @0: Uuid;
     scriptId @1: Uuid;
-    compiledScript @2: Script.CompiledScript;
+    compilationUnit @2: Script.CompilationUnit;
 }
 
 struct SetDefaultScriptCommand {

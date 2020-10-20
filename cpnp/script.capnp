@@ -1,19 +1,5 @@
 @0xb47934fcdf48c012;
 
-struct Label {
-    block @0: Int32;
-}
-
-struct LabelKV {
-    key @0: Int32;
-    val @1: Label;
-}
-
-struct CompiledScript {
-    bytecode @0: Data;
-    labels @1: List(LabelKV);
-}
-
 struct Card {
     name @0: Text;
     description @1: Text;
@@ -27,3 +13,20 @@ struct Schema {
     cards @0: List(Card);
 }
 
+struct Json {
+    value @0: Data;
+}
+
+struct CompilerVersion {
+    major @0: UInt8;
+    minor @1: UInt8;
+    patch @2: UInt16;
+}
+
+struct CompilationUnit {
+    compilationUnit @0: Json;
+
+    # Compiler version used to verify this compilation unit
+    # null if it's unverified
+    verfiedBy @1: CompilerVersion;
+}
