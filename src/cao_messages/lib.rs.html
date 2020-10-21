@@ -216,6 +216,12 @@
 <span id="215">215</span>
 <span id="216">216</span>
 <span id="217">217</span>
+<span id="218">218</span>
+<span id="219">219</span>
+<span id="220">220</span>
+<span id="221">221</span>
+<span id="222">222</span>
+<span id="223">223</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">/// ```capnp</span>
 <span class="doccomment">/// @0x8fa8617ce0060b4d;</span>
@@ -296,6 +302,16 @@
 <span class="doccomment">///     # null if it&#39;s unverified</span>
 <span class="doccomment">///     verfiedBy @1: CompilerVersion;</span>
 <span class="doccomment">/// }</span>
+<span class="doccomment">/// </span>
+<span class="doccomment">/// struct ScriptHistoryEntry {</span>
+<span class="doccomment">///     entityId @0: UInt32;</span>
+<span class="doccomment">///     payload @1: List(ScriptNodeId);</span>
+<span class="doccomment">/// }</span>
+<span class="doccomment">/// </span>
+<span class="doccomment">/// struct ScriptNodeId {</span>
+<span class="doccomment">///     lane @0: UInt16;</span>
+<span class="doccomment">///     pos @1: UInt16;</span>
+<span class="doccomment">/// }</span>
 <span class="doccomment">/// ```</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">script_capnp</span> {
      <span class="macro">include</span><span class="macro">!</span>(<span class="macro">concat</span><span class="macro">!</span>(<span class="macro">env</span><span class="macro">!</span>(<span class="string">&quot;OUT_DIR&quot;</span>), <span class="string">&quot;/cpnp/script_capnp.rs&quot;</span>));
@@ -366,6 +382,7 @@
 <span class="doccomment">/// @0x8bd03b1f356ac9da;</span>
 <span class="doccomment">/// </span>
 <span class="doccomment">/// using Point = import &quot;point.capnp&quot;;</span>
+<span class="doccomment">/// using Script = import &quot;script.capnp&quot;;</span>
 <span class="doccomment">/// </span>
 <span class="doccomment">/// struct Json {</span>
 <span class="doccomment">///     value @0: Text;</span>
@@ -417,18 +434,13 @@
 <span class="doccomment">///     resources @1: List(Resource);</span>
 <span class="doccomment">///     structures @2: List(Structure);</span>
 <span class="doccomment">///     logs @3: List(LogEntry);</span>
-<span class="doccomment">///     scriptHistory @4: List(ScriptHistoryEntry);</span>
+<span class="doccomment">///     scriptHistory @4: List(Script.ScriptHistoryEntry);</span>
 <span class="doccomment">/// }</span>
 <span class="doccomment">/// </span>
 <span class="doccomment">/// struct LogEntry {</span>
 <span class="doccomment">///     entityId @0: UInt32;</span>
 <span class="doccomment">///     time @1: UInt64;</span>
 <span class="doccomment">///     payload @2: List(Text);</span>
-<span class="doccomment">/// }</span>
-<span class="doccomment">/// </span>
-<span class="doccomment">/// struct ScriptHistoryEntry {</span>
-<span class="doccomment">///     entityId @0: UInt32;</span>
-<span class="doccomment">///     payload @1: List(Int64);</span>
 <span class="doccomment">/// }</span>
 <span class="doccomment">/// ```</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">world_capnp</span> {

@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["bot",""],["energy",""],["json",""],["log_entry",""],["resource",""],["script_history_entry",""],["structure",""],["structure_spawn",""],["uuid",""],["world_state",""]]});
+initSidebarItems({"mod":[["bot",""],["energy",""],["json",""],["log_entry",""],["resource",""],["structure",""],["structure_spawn",""],["uuid",""],["world_state",""]]});
