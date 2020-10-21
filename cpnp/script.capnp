@@ -30,3 +30,13 @@ struct CompilationUnit {
     # null if it's unverified
     verfiedBy @1: CompilerVersion;
 }
+
+struct ScriptHistoryEntry {
+    entityId @0: UInt32;
+    payload @1: List(ScriptNodeId);
+}
+
+struct ScriptNodeId {
+    lane @0: UInt16;
+    pos @1: UInt16;
+}

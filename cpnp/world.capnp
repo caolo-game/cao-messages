@@ -1,6 +1,7 @@
 @0x8bd03b1f356ac9da;
 
 using Point = import "point.capnp";
+using Script = import "script.capnp";
 
 struct Json {
     value @0: Text;
@@ -52,16 +53,11 @@ struct WorldState {
     resources @1: List(Resource);
     structures @2: List(Structure);
     logs @3: List(LogEntry);
-    scriptHistory @4: List(ScriptHistoryEntry);
+    scriptHistory @4: List(Script.ScriptHistoryEntry);
 }
 
 struct LogEntry {
     entityId @0: UInt32;
     time @1: UInt64;
     payload @2: List(Text);
-}
-
-struct ScriptHistoryEntry {
-    entityId @0: UInt32;
-    payload @1: List(Int64);
 }
