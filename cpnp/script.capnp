@@ -28,7 +28,7 @@ struct CompilationUnit {
 
     # Compiler version used to verify this compilation unit
     # null if it's unverified
-    verfiedBy @1: CompilerVersion;
+    verifiedBy @1: CompilerVersion;
 }
 
 struct ScriptHistoryEntry {
