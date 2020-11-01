@@ -1,4 +1,4 @@
 (function() {var implementors = {};
-implementors["cao_messages"] = [{"text":"impl PartialEq&lt;TerrainType&gt; for TerrainType","synthetic":false,"types":[]},{"text":"impl PartialEq&lt;StructureType&gt; for StructureType","synthetic":false,"types":[]}];
+implementors["cao_messages"] = [{"text":"impl PartialEq&lt;StructureType&gt; for StructureType","synthetic":false,"types":[]}];
 implementors["capnp"] = [{"text":"impl PartialEq&lt;ElementSize&gt; for ElementSize","synthetic":false,"types":[]},{"text":"impl PartialEq&lt;WirePointerKind&gt; for WirePointerKind","synthetic":false,"types":[]},{"text":"impl PartialEq&lt;Word&gt; for Word","synthetic":false,"types":[]},{"text":"impl PartialEq&lt;MessageSize&gt; for MessageSize","synthetic":false,"types":[]},{"text":"impl PartialEq&lt;NotInSchema&gt; for NotInSchema","synthetic":false,"types":[]},{"text":"impl PartialEq&lt;ErrorKind&gt; for ErrorKind","synthetic":false,"types":[]}];
 if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

@@ -1,1 +1,0 @@
-initSidebarItems({"enum":[["TerrainType",""]],"mod":[["room_properties",""],["room_terrain_message",""],["tile",""]]});

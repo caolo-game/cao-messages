@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source to the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/capnp-0.13.5/src/message.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>message.rs.html -- source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled ><script src="../../storage.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="shortcut icon" href="../../favicon.ico"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../capnp/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><span class="help-button">?</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source to the Rust file `/home/runner/.cargo/registry/src/github.com-1ecc6299db9ec823/capnp-0.13.6/src/message.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>message.rs.html -- source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled ><script src="../../storage.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="shortcut icon" href="../../favicon.ico"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../capnp/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><span class="help-button">?</span>
                 <a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
@@ -536,6 +536,27 @@
 <span id="535">535</span>
 <span id="536">536</span>
 <span id="537">537</span>
+<span id="538">538</span>
+<span id="539">539</span>
+<span id="540">540</span>
+<span id="541">541</span>
+<span id="542">542</span>
+<span id="543">543</span>
+<span id="544">544</span>
+<span id="545">545</span>
+<span id="546">546</span>
+<span id="547">547</span>
+<span id="548">548</span>
+<span id="549">549</span>
+<span id="550">550</span>
+<span id="551">551</span>
+<span id="552">552</span>
+<span id="553">553</span>
+<span id="554">554</span>
+<span id="555">555</span>
+<span id="556">556</span>
+<span id="557">557</span>
+<span id="558">558</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">// Copyright (c) 2013-2015 Sandstorm Development Group, Inc. and contributors</span>
 <span class="comment">// Licensed under the MIT License:</span>
@@ -826,6 +847,7 @@
     <span class="kw">fn</span> <span class="ident">allocate_segment</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">minimum_size</span>: <span class="ident">u32</span>) <span class="op">-&gt;</span> (<span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u8</span>, <span class="ident">u32</span>);
 
     <span class="doccomment">/// Indicates that a segment, previously allocated via allocate_segment(), is no longer in use.</span>
+    <span class="doccomment">/// `word_size` is the length of the segment in words, as returned from `allocate_segment()`.</span>
     <span class="kw">fn</span> <span class="ident">deallocate_segment</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">ptr</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u8</span>, <span class="ident">word_size</span>: <span class="ident">u32</span>, <span class="ident">words_used</span>: <span class="ident">u32</span>);
 }
 
@@ -1008,6 +1030,15 @@
 }
 
 <span class="doccomment">/// An Allocator whose first segment is a backed by a user-provided buffer.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// Recall that an `Allocator` implementation must ensure that allocated segments are</span>
+<span class="doccomment">/// initially *zeroed*. `ScratchSpaceHeapAllocator` ensures that is the case by zeroing</span>
+<span class="doccomment">/// the entire buffer upon initial construction, and then zeroing any *potentially used*</span>
+<span class="doccomment">/// part of the buffer upon `deallocate_segment()`.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// You can reuse a `ScratchSpaceHeapAllocator` by calling `message::Builder::into_allocator()`,</span>
+<span class="doccomment">/// or by initally passing it to `message::Builder::new()` as a `&amp;mut ScratchSpaceHeapAllocator`.</span>
+<span class="doccomment">/// Such reuse can save significant amounts of zeroing.</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ScratchSpaceHeapAllocator</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
     <span class="ident">scratch_space</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="kw-2">mut</span> [<span class="ident">u8</span>],
     <span class="ident">scratch_space_allocated</span>: <span class="ident">bool</span>,
@@ -1017,9 +1048,9 @@
 <span class="kw">impl</span> <span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">ScratchSpaceHeapAllocator</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
     <span class="doccomment">/// Writes zeroes into the entire buffer and constructs a new allocator from it.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// If you want to reuse the same buffer and to minimize the cost of zeroing for each message,</span>
-    <span class="doccomment">/// you can call `message::Builder::into_allocator()` to recover the allocator from</span>
-    <span class="doccomment">/// the previous message and then pass it into the new message.</span>
+    <span class="doccomment">/// If the buffer is large, this operation could be relatively expensive. If you want to reuse</span>
+    <span class="doccomment">/// the same scratch space in a later message, you should reuse the entire</span>
+    <span class="doccomment">/// `ScratchSpaceHeapAllocator`, to avoid paying this full cost again.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">scratch_space</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="kw-2">mut</span> [<span class="ident">u8</span>]) <span class="op">-&gt;</span> <span class="ident">ScratchSpaceHeapAllocator</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
         <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;unaligned&quot;</span>))]</span>
         {
@@ -1074,5 +1105,16 @@
         }
     }
 }
+
+<span class="kw">unsafe</span> <span class="kw">impl</span> <span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">A</span><span class="op">&gt;</span> <span class="ident">Allocator</span> <span class="kw">for</span> <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="kw-2">mut</span> <span class="ident">A</span> <span class="kw">where</span> <span class="ident">A</span>: <span class="ident">Allocator</span> {
+    <span class="kw">fn</span> <span class="ident">allocate_segment</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">minimum_size</span>: <span class="ident">u32</span>) <span class="op">-&gt;</span> (<span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u8</span>, <span class="ident">u32</span>) {
+        (<span class="kw-2">*</span><span class="self">self</span>).<span class="ident">allocate_segment</span>(<span class="ident">minimum_size</span>)
+    }
+
+    <span class="kw">fn</span> <span class="ident">deallocate_segment</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">ptr</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u8</span>, <span class="ident">word_size</span>: <span class="ident">u32</span>, <span class="ident">words_used</span>: <span class="ident">u32</span>) {
+        (<span class="kw-2">*</span><span class="self">self</span>).<span class="ident">deallocate_segment</span>(<span class="ident">ptr</span>, <span class="ident">word_size</span>, <span class="ident">words_used</span>)
+    }
+}
+
 </pre></div>
 </section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../";window.currentCrate = "capnp";</script><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script><script defer src="../../search-index.js"></script></body></html>

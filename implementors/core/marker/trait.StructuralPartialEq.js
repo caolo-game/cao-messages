@@ -1,4 +1,4 @@
 (function() {var implementors = {};
-implementors["cao_messages"] = [{"text":"impl StructuralPartialEq for TerrainType","synthetic":false,"types":[]},{"text":"impl StructuralPartialEq for StructureType","synthetic":false,"types":[]}];
+implementors["cao_messages"] = [{"text":"impl StructuralPartialEq for StructureType","synthetic":false,"types":[]}];
 implementors["capnp"] = [{"text":"impl StructuralPartialEq for ElementSize","synthetic":false,"types":[]},{"text":"impl StructuralPartialEq for WirePointerKind","synthetic":false,"types":[]},{"text":"impl StructuralPartialEq for Word","synthetic":false,"types":[]},{"text":"impl StructuralPartialEq for MessageSize","synthetic":false,"types":[]},{"text":"impl StructuralPartialEq for NotInSchema","synthetic":false,"types":[]},{"text":"impl StructuralPartialEq for ErrorKind","synthetic":false,"types":[]}];
 if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

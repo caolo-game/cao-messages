@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["Builder",""],["Owned",""],["Pipeline",""],["Reader",""]]});
