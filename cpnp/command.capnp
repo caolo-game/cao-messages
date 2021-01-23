@@ -42,6 +42,11 @@ struct CommandResult {
     }
 }
 
+struct TakeRoom {
+    useId @0: Uuid;
+    roomId @1: Point.AxialPoint;
+}
+
 interface Command {
     struct InputMessage {
         messageId @0: Uuid;
@@ -50,6 +55,7 @@ interface Command {
             updateEntityScript @2: UpdateEntityScriptCommand;
             updateScript @3: UpdateScriptCommand;
             setDefaultScript @4: SetDefaultScriptCommand;
+            takeRoom @5: TakeRoom;
         }
     }
 
