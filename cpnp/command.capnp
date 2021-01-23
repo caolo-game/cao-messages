@@ -43,7 +43,7 @@ struct CommandResult {
 }
 
 struct TakeRoom {
-    useId @0: Uuid;
+    userId @0: Uuid;
     roomId @1: Point.AxialPoint;
 }
 
