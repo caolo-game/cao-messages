@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["StructureType",""]],"mod":[["command",""],["command_result",""],["place_structure_command",""],["set_default_script_command",""],["take_room",""],["update_entity_script_command",""],["update_script_command",""],["uuid",""]]});
+initSidebarItems({"enum":[["StructureType",""]],"mod":[["command",""],["command_result",""],["place_structure_command",""],["register_user",""],["set_default_script_command",""],["take_room",""],["update_entity_script_command",""],["update_script_command",""],["uuid",""]]});

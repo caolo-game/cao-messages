@@ -132,6 +132,12 @@
 <span id="129">129</span>
 <span id="130">130</span>
 <span id="131">131</span>
+<span id="132">132</span>
+<span id="133">133</span>
+<span id="134">134</span>
+<span id="135">135</span>
+<span id="136">136</span>
+<span id="137">137</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">/// ```capnp</span>
 <span class="doccomment">/// @0xec51f8bd9898388b;</span>
@@ -199,6 +205,11 @@
 <span class="doccomment">///     roomId @1: Point.AxialPoint;</span>
 <span class="doccomment">/// }</span>
 <span class="doccomment">/// </span>
+<span class="doccomment">/// struct RegisterUser {</span>
+<span class="doccomment">///     userId @0: Uuid;</span>
+<span class="doccomment">///     level @1: UInt16;</span>
+<span class="doccomment">/// }</span>
+<span class="doccomment">/// </span>
 <span class="doccomment">/// interface Command {</span>
 <span class="doccomment">///     struct InputMessage {</span>
 <span class="doccomment">///         messageId @0: Uuid;</span>
@@ -208,6 +219,7 @@
 <span class="doccomment">///             updateScript @3: UpdateScriptCommand;</span>
 <span class="doccomment">///             setDefaultScript @4: SetDefaultScriptCommand;</span>
 <span class="doccomment">///             takeRoom @5: TakeRoom;</span>
+<span class="doccomment">///             registerUser @6: RegisterUser;</span>
 <span class="doccomment">///         }</span>
 <span class="doccomment">///     }</span>
 <span class="doccomment">/// </span>
