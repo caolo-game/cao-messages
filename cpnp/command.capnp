@@ -47,6 +47,11 @@ struct TakeRoom {
     roomId @1: Point.AxialPoint;
 }
 
+struct RegisterUser {
+    userId @0: Uuid;
+    level @1: UInt16;
+}
+
 interface Command {
     struct InputMessage {
         messageId @0: Uuid;
@@ -56,6 +61,7 @@ interface Command {
             updateScript @3: UpdateScriptCommand;
             setDefaultScript @4: SetDefaultScriptCommand;
             takeRoom @5: TakeRoom;
+            registerUser @6: RegisterUser;
         }
     }
 
